@@ -189,3 +189,74 @@ ggplot(myDF_1, aes(x = TercihEttigiTatilTipi)) +
 
 
 ```
+
+# Q6 : Veri analizi
+
+**Müşteri Tercihlerinin Dağılımı:**
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Müşteri tercihlerinin dağılımı
+tercih_dagilimi <- table(myDF_1$TercihEttigiTatilTipi)
+
+# Dağılımın görselleştirilmesi
+barplot(tercih_dagilimi, main = "Müşteri Tercihlerinin Dağılımı", xlab = "Tatil Tercihi", ylab = "Frekans", col = "blue")
+
+
+```
+
+**Müşteri Tercihlerine Göre Ortalama Gelir:**
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Müşteri tercihlerine göre ortalama gelir
+gelir_ortalama <- myDF_1 %>%
+  group_by(TercihEttigiTatilTipi) %>%
+  summarise(Ortalama_Gelir = mean(MonthlyIncome))
+
+# Ortalama gelirin görselleştirilmesi
+ggplot(gelir_ortalama, aes(x = TercihEttigiTatilTipi, y = Ortalama_Gelir)) +
+  geom_bar(stat = "identity", fill = "blue", alpha = 0.7) +
+  labs(title = "Müşteri Tercihlerine Göre Ortalama Gelir", x = "Tatil Tercihi", y = "Ortalama Gelir")
+
+
+
+```
+
+**MMüşteri Tercihlerine Göre Satın Alma Durumu Analizi**
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Müşteri tercihlerine göre satın alma durumu analizi
+satinalma_durumu <- myDF_1 %>%
+  group_by(TercihEttigiTatilTipi, ProdTaken) %>%
+  summarise(Frekans = n())
+
+# Görselleştirme
+ggplot(satinalma_durumu, aes(x = TercihEttigiTatilTipi, y = Frekans, fill = factor(ProdTaken))) +
+  geom_bar(stat = "identity", position = "dodge", alpha = 0.7) +
+  labs(title = "Müşteri Tercihlerine Göre Satın Alma Durumu", x = "Tatil Tercihi", y = "Frekans", fill = "Satın Alma Durumu")
+
+
+```
+
+**Maaşlar ile "TercihEttigiTatilTipi" sütunu arasındaki ilişkiyi incelemek için bir istatistiksel model ve grafik oluşturabiliriz. Ancak, bu örnekte regresyon analizi kullanarak ilişkiyi değerlendireceğim. Aşağıda bir örnek R kodu bulunmaktadır**
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Önce gerekli kütüphaneleri yükleme
+library(ggplot2)
+library(lmtest)
+
+# Regresyon modelini oluşturma
+model <- lm(MonthlyIncome ~ TercihEttigiTatilTipi, data = myDF_1)
+
+# Regresyon modelinin özetini gösterme
+summary(model)
+
+# Grafik oluşturma
+ggplot(myDF_1, aes(x = TercihEttigiTatilTipi, y = MonthlyIncome)) +
+  geom_boxplot() +
+  geom_jitter(aes(color = TercihEttigiTatilTipi), width = 0.2, alpha = 0.5) +
+  labs(title = "Maaşlar ile Tatil Tercihi İlişkisi",
+       x = "Tatil Tercihi",
+       y = "Aylık Gelir") +
+  theme_minimal()
+
+
+```
