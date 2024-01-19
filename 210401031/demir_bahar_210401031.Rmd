@@ -8,3 +8,10 @@ output:
 # Q1 : Problem tanımı
 
 Şirketimiz **B&M**. Problemimiz *B&M Travel şirketi, mevcut sistemde yetersiz müşteri tatil ve tur tercihi verilerine sahip olmanın getirdiği sorunlarla karşı karşıyadır. Bu eksiklik, etkili marketing çalışmaları yapmak, bütçeyi verimli kullanmak ve müşterilere özel pazarlama stratejileri oluşturmak konusundaki potansiyeli kısıtlamaktadır. Müşteri odaklı ve kişiselleştirilmiş hizmet sunma amacıyla, tatil tercih verilerini toplama ve istatistiksel analizlerle değerlendirme ihtiyacı doğmuştur.*. 
+
+# Q2 : Proje Amacı
+[TourPackagePrediction](https://www.kaggle.com/datasets/sanamps/tourpackageprediction)  TourPackagePrediction adli Kaggle veri setini kullanarak iş problemini verilerin istatistiksel dağılım analizi yaparak bu analizi, **müşteri segmentasyonu**, **eğilimlerin belirlenmesi** ve **potansiyel pazarlama hedeflerinin tanımlanması ** için önemli bilgiler olarak kullanacağız.*Bu projenin temel amacı, B&M Travel şirketinin pazarlama stratejilerini güçlendirmek ve müşteri odaklı hizmet sunabilmesi için tatil tercih verilerini etkili bir şekilde toplamak, analiz etmek ve kullanmaktır*. İlk olarak, mevcut veri setine **"TercihEttigiTatilTipi"** adında yeni bir değişken ekleyerek müşterilerin kış tatili, yaz tatili, kültürel gezi veya doğa gezisi gibi tercihlerini belirlemeyi amaçlıyoruz. Bu, şirketin müşteri profilini daha iyi anlamasına ve pazarlama stratejilerini kişiselleştirmesine yardımcı olacaktır.
+
+Marketing bölümüne düzenli raporlar sunarak, hangi müşteri gruplarının daha fazla ilgi gösterdiği, hangi tatil türlerinin daha popüler olduğu gibi konularda strateji belirleme sürecini destekleyeceğiz.
+
+Son olarak, pazarlama faaliyetleri sonrasında yapılan satın alma analizi, şirketin gerçekleştirdiği stratejilerin başarısını değerlendirecek ve iyileştirmeler için rehberlik sağlayacaktır. Bu analizler sayesinde B&M Travel, müşterileriyle daha etkili bir iletişim kurarak tatil tercihlerine yönelik kişiselleştirilmiş kampanyalar düzenleyebilecek ve böylece müşteri memnuniyetini artırarak satışlarını optimize edebilecektir
