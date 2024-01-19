@@ -1,0 +1,10 @@
+---
+title: "Proje Rapor : Bahar Demir 210401031"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Q1 : Problem tanımı
+
+Şirketimiz **B&M**. Problemimiz *B&M Travel şirketi, mevcut sistemde yetersiz müşteri tatil ve tur tercihi verilerine sahip olmanın getirdiği sorunlarla karşı karşıyadır. Bu eksiklik, etkili marketing çalışmaları yapmak, bütçeyi verimli kullanmak ve müşterilere özel pazarlama stratejileri oluşturmak konusundaki potansiyeli kısıtlamaktadır. Müşteri odaklı ve kişiselleştirilmiş hizmet sunma amacıyla, tatil tercih verilerini toplama ve istatistiksel analizlerle değerlendirme ihtiyacı doğmuştur.*. 
