@@ -100,3 +100,37 @@ if ("Gender" %in% colnames(myDF_1)) {
 
 gender_pie
 ```
+
+# Q4 : Veri seti ön işlemesi
+
+
+Tabloda ham versi setleri okundu ve aşağıdaki işlemler yapıldı.
+Veri Seti Ön İşleme Adımları:
+
+Kategorik sütunlar, **faktör** tipine dönüştürüldü. Örnek olarak, TypeofContact sütunu bu şekilde işlendi.
+Sayısal değerlerin ondalık durumu düzeltildi. Örnek olarak, MonthlyIncome sütunundaki virgül noktaya çevrildi.
+Eksik veriler temizlendi. na.omit() fonksiyonu kullanılarak eksik değerlere sahip satırlar veri setinden çıkarıldı.
+Dönüşümler gerçekleştirildi. Örnek olarak, EUR para birimindeki satış verileri TRY'ye çevrildi.
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Örnek: TypeofContact sütununu faktör yapma
+myDF_1$TypeofContact <- as.factor(myDF_1$TypeofContact)
+# Örnek: MonthlyIncome sütunundaki virgülü noktaya çevirme
+myDF_1$MonthlyIncome <- as.numeric(gsub(",", ".", myDF_1$MonthlyIncome))
+# Örnek: NA değerleri temizleme
+myDF_1 <- na.omit(myDF_1)
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE,results='hide'}
+
+
+# Test dosyasını çalıştır ve çıktıları yakala
+source("./Q4_tests_demir_bahar_210401031.R")
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+myDF_1
+```
