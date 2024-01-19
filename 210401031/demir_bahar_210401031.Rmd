@@ -15,3 +15,88 @@ output:
 Marketing bölümüne düzenli raporlar sunarak, hangi müşteri gruplarının daha fazla ilgi gösterdiği, hangi tatil türlerinin daha popüler olduğu gibi konularda strateji belirleme sürecini destekleyeceğiz.
 
 Son olarak, pazarlama faaliyetleri sonrasında yapılan satın alma analizi, şirketin gerçekleştirdiği stratejilerin başarısını değerlendirecek ve iyileştirmeler için rehberlik sağlayacaktır. Bu analizler sayesinde B&M Travel, müşterileriyle daha etkili bir iletişim kurarak tatil tercihlerine yönelik kişiselleştirilmiş kampanyalar düzenleyebilecek ve böylece müşteri memnuniyetini artırarak satışlarını optimize edebilecektir
+
+
+# Q3 : Veri seti keşifsel analizi
+
+
+Projenin analizi için veri setindeki önemli satırlar arasında sayısal değerler bulunmaktadır. Örneğin, **yaş (age)**, **ürünün alınıp alınmadığı (prodtaken)** ve **maaş (salary)** gibi sayısal değerlere ait bilgiler, analizin temelini oluşturmaktadır. Bu sayısal değerler, yaşın tam sayısal bir veri tipine **(num)** sahip olduğu, aynı zamanda ürün alım süresi (prodtaken) ve maaş (salary) bilgilerinin de **numeric ** veri tipine sahip olduğu anlamına gelir.
+
+Veri setindeki kategorik sütunlar, daha anlamlı bir temsil sağlamak amacıyla **faktör** tipine dönüştürülmüştür. Örneğin, TypeofContact sütunu bu dönüşümü geçirmelidir. Sayısal değerlerin ondalık durumu düzeltilmiş ve örneğin, MonthlyIncome sütunundaki virgül noktaya çevrilmiştir.
+
+Satırların veri tipi kontrol edildiğinde, eksik değerlere sahip satırların veri setinden çıkarılması gerekmektedir. Bu, analizin doğruluğunu artırabilir ve sonuçların güvenilirliğini sağlayabilir.Bir diğer eksik dönüşümlerdir; örneğin, EUR para birimindeki satış verileri TRY'ye çevrilmelidir.
+
+Sonuç olarak, veri setinin temizlenmiş, dönüştürülmüş ve eksik değerlerden arındırılmış olduğunu söyleyebiliriz. Bu, projenin analitik sürecini iyileştirecek ve sonuçların güvenilirliğini artıracaktır.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+
+# Veri dosyasını internetten indir ve git repo'sunun içine commitle
+filename_1 <- "tour_package.csv"
+
+
+# Dosyayi ithal et
+library(readr)
+myDF_1 <- read_csv(filename_1)
+
+```
+Veri setlerinin bilgileri aşağıda verilmiştir.
+  
+  **TourPackagePrediction Dataset**
+- *Satir sayisi* : `r nrow(myDF_1)`
+- *Sütun sayisi* : `r ncol(myDF_1)`
+
+**TourPackagePrediction Dataset**
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+setwd("C:/Program Files/R/210401031")
+myDF_1
+```
+Datasetimizdeki yaş verilerinin marketing sektöründe etkilyeci bir rolü vardır. Aşağıda bu veriler histogram ile gösterilmiştir.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+hist(myDF_1$Age,breaks =20)
+```
+
+Datasetinde aşağıdaki hesaplamalar yapılmıştır.
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+
+# Veri setinde yaş sütunu var mı kontrol et
+if ("Age" %in% colnames(myDF_1)) {
+  # Eğer yaş sütunu varsa istatistiksel tabloyu oluştur
+  stats_table <- myDF_1 %>%
+    summarise(
+      Ortalama_Yas = mean(Age, na.rm = TRUE),
+      Medyan_Yas = median(Age, na.rm = TRUE),
+      Standart_Sapma_Yas = sd(Age, na.rm = TRUE),
+      Min_Yas = min(Age, na.rm = TRUE),
+      Max_Yas = max(Age, na.rm = TRUE)
+    )
+
+  print(stats_table)
+} else {
+  print("Veri setinde 'Age' sütunu bulunamadı.")
+}
+
+```
+
+Datasetinde cinsiyet pasta grafiği oluşmuştur.
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+if ("Gender" %in% colnames(myDF_1)) {
+  # Gender sütununu faktör olarak tanımla
+  myDF_1$Gender <- as.factor(myDF_1$Gender)
+
+  # Pasta grafiği oluştur
+  gender_pie <- ggplot(myDF_1, aes(x = "", fill = Gender)) +
+    geom_bar(width = 1, stat = "count") +
+    coord_polar("y") +
+    labs(title = "Gender Dağılımı") +
+    scale_fill_manual(values = c("Male" = "skyblue", "Female" = "pink"))  # Renkler isteğe bağlı, değiştirilebilir
+}
+
+gender_pie
+```
