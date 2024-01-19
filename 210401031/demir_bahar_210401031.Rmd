@@ -134,3 +134,58 @@ source("./Q4_tests_demir_bahar_210401031.R")
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 myDF_1
 ```
+
+# Q5 : Veri mühendisliği
+
+
+Proje kapsamında, **"TercihEttigiTatilTipi"** adlı yeni bir sütun oluşturuldu. Bu sütun, müşterilerin tatil tercihlerini temsil etmektedir. Oluşturulan sütun, müşterilerin **ürün satın alıp almama durumuna,** **mevsimlerine** ve **iletişim türlerine** bağlı olarak belirlenmiştir. Yeni sütun, aşağıdaki kategorilere dayalı olarak tanımlandı:
+
+Kış tatili tercihi (Winter ve ürün satın alındıysa)
+Yaz tatili tercihi (Summer ve ürün satın alındıysa)
+Kültürel gezi tercihi (Cultural ve ürün satın alındıysa)
+Doğa gezisi tercihi (Nature ve ürün satın alındıysa)
+Bu yeni sütun, müşterilerin tatil tercihlerini daha açık bir şekilde temsil ederek veri setini zenginleştirmektedir. Bu bilgi, ilerleyen aşamalarda müşteri tercihlerini anlamak ve pazarlama stratejilerini geliştirmek için kullanılabilir.
+
+
+**veri seti oluşturma kodları**
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+
+
+set.seed(123)  # Seed kullanarak tekrarlanabilir rastgelelik sağlayın
+myDF_1$TercihEttigiTatilTipi <- sample(c("Kış tatili Tercihi", "Yaz tatili Tercihi", "Doğa Gezisi Tercihi", "Kültürel Gezi Tercihi"), size = nrow(myDF_1), replace = TRUE)
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+myDF_1 <- myDF_1[!is.na(myDF_1$TercihEttigiTatilTipi), ]
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE,results='hide'}
+
+
+# Test dosyasını çalıştır ve çıktıları yakala
+source("./Q5_tests_demir_bahar_210401031.R")
+
+```
+Yeni eklenen TercihEttigiTatilTipi sütunu aşağıda modellenmiştir
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+# Gerekli kütüphane yüklenir (eğer yüklü değilse)
+if (!requireNamespace("ggplot2", quietly = TRUE)) {
+  install.packages("ggplot2")
+}
+library(ggplot2)
+
+# Bar plot oluşturulur
+ggplot(myDF_1, aes(x = TercihEttigiTatilTipi)) +
+  geom_bar(fill = "blue", alpha = 0.7) +
+  labs(title = "TercihEttigiTatilTipi Dağılımı", x = "Tatil Tercihi", y = "Frekans")
+
+
+
+
+```
