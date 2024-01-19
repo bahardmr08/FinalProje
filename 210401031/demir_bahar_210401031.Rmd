@@ -260,3 +260,39 @@ ggplot(myDF_1, aes(x = TercihEttigiTatilTipi, y = MonthlyIncome)) +
 
 
 ```
+# Q7 : Sonuç değerlendirme, tavsiyeler
+
+
+Bu projenin genel değerlendirmesi ve sonuçlarının yorumlanması şu şekilde yapılabilir:
+
+**Operasyonların Geçerliliği**
+
+Yapılan operasyonlar, müşteri tercih verilerini analiz ederek yeni bir sütun olan "TercihEttigiTatilTipi" oluşturmayı başardı.
+İstatistiksel analizlerle müşteri tercihlerinin dağılımı, yaş ortalaması, cinsiyet dağılımı,maaş dağılımı gibi önemli bilgiler elde edildi.
+
+**Sonuçların Mantıklılığı**
+
+Oluşturulan "TercihEttigiTatilTipi" sütunu, müşterilerin tatil tercihlerini belirlemede etkili bir şekilde kullanılabilecek kategorik bir değişken sağladı.
+İstatistikler, müşteri profillerini daha iyi anlamak ve pazarlama stratejilerini kişiselleştirmek adına mantıklı sonuçlar verdi.
+
+**Ana Problemi Çözme Başarısı**
+
+Ana problem, müşteri tercih verilerinin toplanmaması ve analiz edilmemesi olarak belirlenmişti.
+Proje, bu eksikliği gidererek müşteri tercihlerini kategorize etme ve analiz etme adına bir çözüm sağladı.
+
+**Sonuçların Kullanımı**
+
+Elde edilen sonuçlar, pazarlama stratejilerinin belirlenmesi, reklam kampanyalarının kişiselleştirilmesi ve müşterilere özel tatil tekliflerinin oluşturulması için kullanılabilir.
+
+**Analizin ve Sonuçların Güçlü ve Zayıf Yanları**
+
+**Güçlü Yanlar:** Müşteri tercihlerini belirlemek adına yeni bir değişken eklemek, pazarlama stratejilerini kişiselleştirmek adına etkili bir adımdır.
+**Zayıf Yanlar:** Analiz daha fazla derinleştirilebilirdi; örneğin, müşteri segmentasyonu, tatil tercihleri ile satın alma davranışları arasındaki ilişki gibi konulara daha fazla odaklanılabilirdi.
+
+**İyileştirme ve İlerletme Tavsiyeleri**
+
+Müşteri segmentasyonu gibi daha ileri analizler yapılabilir.
+Müşteri memnuniyeti anketleri veya geri bildirimler üzerinden daha fazla veri toplanabilir.
+Satın alma analizi daha detaylı olarak ele alınabilir.
+Projenin gelecekteki aşamalarında yapılacak iyileştirmeler ve güncellemelerle ilgili bir plan oluşturulabilir.
+Bu değerlendirme, projenin genel başarısını ve iyileştirme potansiyelini ortaya koymak için kullanılabilir. Sonuçlar, şirketin pazarlama stratejilerini geliştirmek ve müşteri memnuniyetini artırmak için değerli bir temel oluşturabilir.
